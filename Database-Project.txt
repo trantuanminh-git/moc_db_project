@@ -1,0 +1,25 @@
+Database Project
+- Thiết kế Database cho user (người dự thi, người tạo bài kiểm tra)
+1. Người thi:
++ Log in:
+ . Database lưu tên user, password, số bài dự thi đã tham gia, id các bài dự thi,...
+ . Quản lí log in (so sánh password, tên user,...) (Back_end)
++ Chọn tham gia bài kiểm tra
+ . Lưu thông tin bài kiểm tra hiện tại của mỗi user.
+ . (Giới hạn thời gian)
+ . Check đáp án đúng
+ . Cập nhật database của user
+ 
++ Xem điểm bài kiểm tra
++ (Feedback)
+
+2. Admin
++ Log in:
+ . Tương tự user
++ Tạo bài kiểm tra:
+ . Truy vấn dùng database quản lí câu hỏi, answer 
+ . Tạo bài kiểm tra random, tạo bài kiểm tra tùy chọn(dựa trên thời thời gian, level,...)
++ Quản lí user, bài kiểm tra
+ . Truy vấn database người dự thi, truy vấn database phần câu hỏi.
+3. Database về câu hỏi, câu trả lời
+
