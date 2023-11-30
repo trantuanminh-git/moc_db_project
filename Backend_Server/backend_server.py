@@ -5,9 +5,9 @@ from flask_cors import CORS
 
 ### Connect to SQL Server database ###
 # Connect to SQL Server database info
-SERVER = 'B1-R201-20\SQLEXPRESS'
-DATABASE = 'Prj'
-USERNAME = 'test'
+SERVER = 'DUYNGUYEN\SQLEXPRESS'
+DATABASE = 'Project'
+USERNAME = 'sa'
 PASSWORD = '123456'
 
 # Connection string
@@ -67,6 +67,12 @@ def login_user(user):
     else:
         return jsonify({'success': False, 'error': 'Invalid username or password'})
 
+def get_user_info(id):
+    query = 'SELECT * FROM User_info WHERE user_id = ?'
+    cursor = conn.cursor() 
+    cursor.execute(query, id)
+    user = cursor.fetchone()
+    return jsonify(user)
 
 ### Server communication ###
 app = Flask(__name__)
@@ -83,6 +89,13 @@ def login():
     data = request.get_json()
     msg = login_user(data)
     return msg
+
+@app.route('/getUserInfo', methods=['GET'])
+def getUserInfo():
+    data = request.get_json()
+    info = get_user_info(data)
+    return info
+
 
 # Start server
 if __name__ == '__main__':
