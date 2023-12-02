@@ -27,6 +27,7 @@ function submitForm() {
           .then(data => {
             if (data.success) {
               alert('Login successful');
+              window.location.href = "dashboard_user.html";
             } else {
               alert('Login failed');
             }

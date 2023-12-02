@@ -14,6 +14,8 @@ VALUES
 (20215182, 'Tran Thuy Chau', 'chauxinggai123', 'chau.tt215182@sis.hust.edu.vn', 1),
 (20215207, 'Pham Quang Huy', 'huydepzai123', 'huy.pq215207@sis.hust.edu.vn', 1);
 
+insert into User_info Values (0, 'admin', 'admin', 'admin@gmail.com', 1);
+
 SELECT * FROM User_info;
 
 SELECT * FROM User_info
@@ -65,16 +67,19 @@ CREATE TABLE Test (
         test_id INT IDENTITY(1,1) PRIMARY KEY,
         title VARCHAR(255),
         date_created DATE,
-        admin_id INT FOREIGN KEY REFERENCES User_Info(user_id)
+        admin_id INT
 );
 
 SELECT * FROM Test;
+
+Insert into Test (title, date_created, admin_id)
+values ('test_0', cast(getdate() as date), 0);
 
 DROP TABLE Test_question;
 
 CREATE TABLE Test_question(
 		question_id VARCHAR(50) FOREIGN KEY REFERENCES Question(question_id),
-		test_id VARCHAR(50) FOREIGN KEY REFERENCES Test(test_id)
+		test_id INT FOREIGN KEY REFERENCES Test(test_id)
 )
 
 SELECT * FROM Test_question;

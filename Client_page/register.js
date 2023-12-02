@@ -2,9 +2,18 @@ function submitForm() {
     // Get form values
     var username = document.getElementById("exampleFirstName").value;
     var email = document.getElementById("exampleInputEmail").value;
+    var userId = document.getElementById("exampleUserID").value;
     var password = document.getElementById("exampleInputPassword").value;
     var repeatPassword = document.getElementById("exampleRepeatPassword").value;
 
+    if((username == null || username == "")
+    &&(email == null || email == "")
+    &&(userId == null || userId == "")
+    &&(password == null || password == "")
+    &&(repeatPassword == null || repeatPassword == "")){
+        alert('Please enter all register information');
+        return;
+    }else{
     // Check if password and repeat password match
     if (password !== repeatPassword) {
         alert("Password and Repeat Password do not match. Please try again.");
@@ -17,14 +26,30 @@ function submitForm() {
     var userObject = {
         username: username,
         email: email,
+        user_id: userId,
         password: password,
-        repeatPassword: repeatPassword
+        user_type: 0
     };
 
-    // Log JSON object to console 
-    console.log(JSON.stringify(userObject));
-
-    // Redirect to the login page after successful registration
-    window.location.href = "login.html";
-    
+    fetch('http://localhost:5000/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userObject),
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert('Register successful');
+              // Redirect to the login page after successful registration
+              window.location.href = "login.html";
+            } else {
+              alert('Register failed');
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+}
 }
