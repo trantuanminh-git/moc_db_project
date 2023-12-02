@@ -8,6 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <style>
+        td {
+        padding-bottom: 30px; /* Adjust the value as needed */
+    }
+    .account-settings-header-subtitle {
+        margin-bottom: 40px; /* Adjust the value as needed */
+    }
+    </style>
 
     <title>SB Admin 2 - Border Utilities</title>
 
@@ -52,7 +60,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -348,7 +356,56 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-1 text-gray-800">Dashboard</h1>
+                    <h1 class="h3 mb-1 text-gray-800">Basic Account Information</h1>
+                    
+                    <p class="account-settings-header-subtitle">These settings include basic information about your account.</p>
+
+
+                    
+                        <table style="width:100%">
+                            <tr>
+                              <th>UserID</th>
+                            </tr>
+                            <tr>
+                              <td>20215182</td>
+                              <td>The UserID that identifies you on TestGen. You cannot change your UserID.</td>
+                            </tr>
+    
+                            <tr>
+                              <th>Username</th>
+                            </tr>
+                            <tr>
+                              <td>Tran Thuy Chau</td>
+                              <td>The name that is used for ID verification and that appears on your certificates.</td>
+                            </tr>
+                            
+                            <tr>
+                                <th>Email</th>
+                            </tr>
+                            <tr>
+                                <td>tranthuychau@gmail.com</td>
+                                <td>You will receive messages from TestGen at this address</td>
+                            </tr>
+
+                            <tr>
+                                <th>Password</th>
+                            </tr>
+                            <tr>
+                                <td>moctran121003</td>
+                                
+                            </tr>
+
+                            <tr>
+                                <th>User Type</th>
+                            </tr>
+                            <tr>
+                                <td>Administrator</td>
+                                
+                            </tr>
+                        </table>
+
+                    
+                    
                     <!-- <p class="mb-4">Bootstrap's default utility classes can be found on the official <a
                             href="https://getbootstrap.com/docs">Bootstrap Documentation</a> page. The custom utilities
                         below were created to extend this theme past the default utility classes built into Bootstrap's
@@ -365,8 +422,8 @@
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+                <div class="container-fluid">
+                    <div class="copyright text-center">
                         <span>Copyright &copy; TestGen2023</span>
                     </div>
                 </div>
