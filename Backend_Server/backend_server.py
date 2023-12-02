@@ -63,7 +63,8 @@ def login_user(user):
     user = cursor.fetchone()
 
     if user:
-        return jsonify({'success': True})
+        user_id = user[0]
+        return jsonify({'success': True, 'user_id': user_id})
     else:
         return jsonify({'success': False, 'error': 'Invalid username or password'})
 

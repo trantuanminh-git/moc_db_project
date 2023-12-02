@@ -27,6 +27,8 @@ function submitForm() {
           .then(data => {
             if (data.success) {
               alert('Login successful');
+              user_id = data.user_id;
+              localStorage.setItem('user_id', user_id);
               window.location.href = "dashboard_user.html";
             } else {
               alert('Login failed');
