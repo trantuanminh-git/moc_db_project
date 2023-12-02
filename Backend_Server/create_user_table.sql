@@ -62,11 +62,13 @@ SELECT * FROM Explaination;
 DROP TABLE Test;
 
 CREATE TABLE Test (
-        test_id VARCHAR(50) PRIMARY KEY,
+        test_id INT IDENTITY(1,1) PRIMARY KEY,
         title VARCHAR(255),
         date_created DATE,
         admin_id INT FOREIGN KEY REFERENCES User_Info(user_id)
 );
+
+SELECT * FROM Test;
 
 DROP TABLE Test_question;
 
@@ -74,3 +76,6 @@ CREATE TABLE Test_question(
 		question_id VARCHAR(50) FOREIGN KEY REFERENCES Question(question_id),
 		test_id VARCHAR(50) FOREIGN KEY REFERENCES Test(test_id)
 )
+
+SELECT * FROM Test_question;
+
